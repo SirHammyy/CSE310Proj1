@@ -14,7 +14,7 @@ void merge(int a[], int l, int m, int r)
 
     for (i = 0; i < lower; i++)
     {
-
+        //TODO Merge
     }
 }
 
@@ -30,6 +30,64 @@ void mergeSort(int a[], int l, int r)
 }
 
 
+void insertionSort(int a[], int length)
+{
+    int key, j;
+    for (int i = 1; i < length; i++)
+    {
+        key = a[i];
+        j = i - 1;
+        while (j >= 0 && a[j] > key)
+        {
+            a[j + 1] = a[j];
+            j = j - 1;
+        }
+        a[j + 1] = key;
+    }
+}
+
+string* recoverStrings(string* a, int* b, int length)
+{
+    string* output = new string[length];
+    for (int i = 0; i < length; i++)
+    {
+        if (b[i] != b[i + 1])
+        {
+            int j = 0;
+            while (b[i] != int(a[j][length - 1]))
+            {
+                j++;
+            }
+            output[i] = a[j];
+        }
+
+        else
+        {
+            int* matches = new int[length];
+            string* options = new string[length];
+            matches[0] = i;
+            int j = i + 1;
+            int counter = 1;
+            while (b[i] == b[j])
+            {
+                options[i] = a[i]
+                matches[counter] = b[j];         //HELP ME and good luck -David
+                counter++;
+                j++;
+            }
+            length = counter - 1;
+            for (int i = 0; i < length; i++)
+            {
+                matches[i] = (int)a[i][length - 2];
+            }
+
+            insertionSort(matches, length);
+            
+        }
+    }
+
+    return output;
+}
 
 string* encode(string input)
 {
@@ -52,22 +110,17 @@ string* encode(string input)
         output[iterations] = input;
         iterations++;
     }
+    cout << endl;
 
     //Sort
     int* ascii = new int[input.length()];
     for (int i = 0; i < length; i++)
     {
-        ascii[i] = int(output[i][0]);
+        ascii[i] = int(output[i][input.length() - 1]);
     }
-    mergeSort(ascii, ascii[0], ascii[length - 1]);
-
-    for (int i = 0; i < length; i++)
-    {
-        cout << ascii[i] << endl;
-    }
-
-
-    return output;
+    //mergeSort(ascii, ascii[0], ascii[length - 1]);
+    insertionSort(ascii, input.length());
+    return recoverStrings(output, ascii, input.length());
 }
 
 int main(int argc, char* argv[])
