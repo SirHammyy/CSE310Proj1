@@ -70,19 +70,23 @@ string* recoverStrings(string* a, int* b, int length)
             int counter = 1;
             while (b[i] == b[j])
             {
-                options[i] = a[i]
-                matches[counter] = b[j];         //HELP ME and good luck -David
+                options[i] = a[i];
+                matches[counter - 1] = b[j]; 
                 counter++;
                 j++;
+                i++;
             }
-            length = counter - 1;
-            for (int i = 0; i < length; i++)
+            cout << counter - 1 << endl;
+            for (int i = matches[0]; i < counter - 1; i++)
+            { 
+                matches[i] = (int)a[i][length - 1];
+            }
+            insertionSort(matches, counter - 1);
+            for (int i = 0; i < counter - 1; i++)
             {
-                matches[i] = (int)a[i][length - 2];
+                //cout << (char)matches[i] << endl;
             }
-
-            insertionSort(matches, length);
-            
+            recoverStrings(options, matches, counter - 1); 
         }
     }
 
