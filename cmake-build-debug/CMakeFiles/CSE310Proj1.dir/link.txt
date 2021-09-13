@@ -1,0 +1,3 @@
+"F:\Programming\CLion\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\CSE310Proj1.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\CSE310Proj1.dir/objects.a @CMakeFiles\CSE310Proj1.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\CSE310Proj1.dir/objects.a -Wl,--no-whole-archive -o CSE310Proj1.exe -Wl,--out-implib,libCSE310Proj1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\CSE310Proj1.dir\linklibs.rsp

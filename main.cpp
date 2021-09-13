@@ -30,9 +30,10 @@ void mergeSort(int a[], int l, int r)
 }
 
 
-void insertionSort(int a[], int length)
+void insertionSort(string* a, int length)
 {
-    int key, j;
+    string key;
+    int j;
     for (int i = 1; i < length; i++)
     {
         key = a[i];
@@ -46,60 +47,24 @@ void insertionSort(int a[], int length)
     }
 }
 
-string* recoverStrings(string* a, int* b, int length)
+void reverseString(string& a, int length)
 {
-    string* output = new string[length];
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < length / 2; i++)
     {
-        if (b[i] != b[i + 1])
-        {
-            int j = 0;
-            while (b[i] != int(a[j][length - 1]))
-            {
-                j++;
-            }
-            output[i] = a[j];
-        }
-
-        else
-        {
-            int* matches = new int[length];
-            string* options = new string[length];
-            matches[0] = i;
-            int j = i + 1;
-            int counter = 1;
-            while (b[i] == b[j])
-            {
-                options[i] = a[i];
-                matches[counter - 1] = b[j]; 
-                counter++;
-                j++;
-                i++;
-            }
-            cout << counter - 1 << endl;
-            for (int i = matches[0]; i < counter - 1; i++)
-            { 
-                matches[i] = (int)a[i][length - 1];
-            }
-            insertionSort(matches, counter - 1);
-            for (int i = 0; i < counter - 1; i++)
-            {
-                //cout << (char)matches[i] << endl;
-            }
-            recoverStrings(options, matches, counter - 1); 
-        }
+        char temp = a[i];
+        a[i] = a[length - i - 1];
+        a[length - i - 1] = temp;
     }
-
-    return output;
 }
 
-string* encode(string input)
+string encode(string input)
 {
     //Iterate through the string, shifting one space right
     int iterations = 1;
     int length = input.length();
-    string* output = new string[length];
-    output[0] = input;
+    string* outputs = new string[length];
+    string output;
+    outputs[0] = input;
     while (iterations < length)
     {
         char temp;
@@ -111,31 +76,79 @@ string* encode(string input)
             input[i] = temp;
         }
         input[0] = last;
-        output[iterations] = input;
+        outputs[iterations] = input;
         iterations++;
     }
     cout << endl;
 
-    //Sort
-    int* ascii = new int[input.length()];
+    //Reverse Strings
     for (int i = 0; i < length; i++)
     {
-        ascii[i] = int(output[i][input.length() - 1]);
+        reverseString(outputs[i], length);
     }
-    //mergeSort(ascii, ascii[0], ascii[length - 1]);
-    insertionSort(ascii, input.length());
-    return recoverStrings(output, ascii, input.length());
+
+    //Sort
+    insertionSort(outputs, input.length());
+
+    //Rereverse Strings and find correct line
+    int correctPos = 0;
+    for (int i = 0; i < length; i++)
+    {
+        reverseString(outputs[i], length);
+        if (!input.compare(outputs[i]))
+        {
+            correctPos = i;
+        }
+    }
+
+    output.append(to_string(correctPos));
+    output.append(" \n");
+
+    //Find second line of output
+    /*for (int i = 0; i < length; i++)
+    {
+        if (outputs[i][0] != outputs[i + 1][0] && outputs[i][0] != outputs[i - 1][0])
+        {
+            output.append("1");
+            output.append(string(1, outputs[i][0]));
+        }
+
+        else
+        {
+            int count = 1;
+            while (outputs[i][0] == outputs[i + 1][0] || outputs[i][0] == outputs[i - 1][0])
+            {
+                count++;
+                i++;
+            }
+
+            output.append(string(1, count));
+            output.append(string(1, outputs[i][0]));
+        }
+    }*/
+
+    for (int t = 0; t < length; t++)
+        cout << outputs[t] << endl;
+
+    return output;
 }
 
 int main(int argc, char* argv[])
 {
-    string input;
-    getline(cin, input);
-    int length = input.length();
-    string* output = encode(input);
-    for (int i = 0; i < length; i++)
+    if (argc > 1)
     {
-        cout << output[i] << endl;
+        if (string(argv[1]) == "insertion")
+        {
+            string input;
+            getline(cin, input);
+            int length = input.length();
+            string output = encode(input);
+            cout << output << endl;
+            return 0;
+        }
+        else if (string(argv[1]) == "mergesort")
+        {
+            //Merge sort
+        }
     }
-    return 0;
 }
