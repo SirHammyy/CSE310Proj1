@@ -59,6 +59,7 @@ void reverseString(string& a, int length)
 
 string encode(string input)
 {
+    string original = input;
     //Iterate through the string, shifting one space right
     int iterations = 1;
     int length = input.length();
@@ -95,19 +96,21 @@ string encode(string input)
     for (int i = 0; i < length; i++)
     {
         reverseString(outputs[i], length);
-        if (!input.compare(outputs[i]))
+        if (outputs[i] == original)
         {
             correctPos = i;
         }
+
     }
 
     output.append(to_string(correctPos));
     output.append(" \n");
 
+
     //Find second line of output
-    /*for (int i = 0; i < length; i++)
+    for (int i = 0; i < length; i++)
     {
-        if (outputs[i][0] != outputs[i + 1][0] && outputs[i][0] != outputs[i - 1][0])
+        if (outputs[i][0] != outputs[i + 1][0])
         {
             output.append("1");
             output.append(string(1, outputs[i][0]));
@@ -116,16 +119,16 @@ string encode(string input)
         else
         {
             int count = 1;
-            while (outputs[i][0] == outputs[i + 1][0] || outputs[i][0] == outputs[i - 1][0])
+            while (outputs[i][0] == outputs[i + 1][0])
             {
                 count++;
                 i++;
             }
 
-            output.append(string(1, count));
+            output.append(string(1, (char)count));
             output.append(string(1, outputs[i][0]));
         }
-    }*/
+    }
 
     for (int t = 0; t < length; t++)
         cout << outputs[t] << endl;
@@ -150,5 +153,15 @@ int main(int argc, char* argv[])
         {
             //Merge sort
         }
+    }
+
+    else
+    {
+        string input;
+        getline(cin, input);
+        int length = input.length();
+        string output = encode(input);
+        cout << output << endl;
+        return 0;
     }
 }
