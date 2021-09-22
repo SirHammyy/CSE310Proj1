@@ -60,6 +60,10 @@ void reverseString(string& a, int length)
 string encode(string input)
 {
     string original = input;
+    if (input == "\n")
+    {
+        return "\n";
+    }
     //Iterate through the string, shifting one space right
     int iterations = 1;
     int length = input.length();
@@ -104,34 +108,27 @@ string encode(string input)
     }
 
     output.append(to_string(correctPos));
-    output.append(" \n");
+    output.append("\n");
 
 
     //Find second line of output
-    for (int i = 0; i < length; i++)
-    {
-        if (outputs[i][0] != outputs[i + 1][0])
-        {
-            output.append("1");
-            output.append(string(1, outputs[i][0]));
+    int i = 0;
+    int counter = 1;
+    while(i < length - 1) {
+        if (outputs[i][0] != outputs[i + 1][0]) {
+            output += to_string(counter);
+            output += outputs[i][0];
+            counter = 1;
+            i++;
         }
-
         else
         {
-            int count = 1;
-            while (outputs[i][0] == outputs[i + 1][0])
-            {
-                count++;
-                i++;
-            }
-
-            output.append(string(1, (char)count));
-            output.append(string(1, outputs[i][0]));
+            counter++;
+            i++;
         }
     }
-
-    for (int t = 0; t < length; t++)
-        cout << outputs[t] << endl;
+    output += to_string(counter);
+    output += outputs[i][0];
 
     return output;
 }
@@ -140,13 +137,25 @@ int main(int argc, char* argv[])
 {
     if (argc > 1)
     {
+        string inputFileName = string(argv[2]);
+        string outputFileName = string(argv[3]);
+
         if (string(argv[1]) == "insertion")
         {
+            ifstream inputFile;
+            ofstream outputFile;
+            outputFile.open(outputFileName);
+            inputFile.open(inputFileName);
+
             string input;
-            getline(cin, input);
-            int length = input.length();
-            string output = encode(input);
-            cout << output << endl;
+            while(inputFile)
+            {
+                getline(inputFile, input);
+                string output = encode(input);
+                outputFile << output << endl;
+            }
+            outputFile.close();
+            inputFile.close();
             return 0;
         }
         else if (string(argv[1]) == "mergesort")
