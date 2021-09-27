@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="F:/Programming/git-repos/School/CSE310/CSE310Proj1/Decode.cpp">
+			<Option target="CSE310Proj1"/>
+		</Unit>
 		<Unit filename="F:/Programming/git-repos/School/CSE310/CSE310Proj1/Encode.cpp">
 			<Option target="CSE310Proj1"/>
 		</Unit>

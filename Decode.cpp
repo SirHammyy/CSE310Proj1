@@ -104,83 +104,75 @@ void reverseString(string& a, int length)
     }
 }
 
-string encode(string input, bool type)
+string decode(string input, bool type)
 {
-    string original = input;
-    if (input == "")
+    if (input == "\n")
     {
         return "\n";
     }
-    //Iterate through the string, shifting one space right
-    int iterations = 1;
-    int length = input.length();
-    string* outputs = new string[length];
-    string output;
-    outputs[0] = input;
-    while (iterations < length)
+
+    string original, first;
+    bool alt = false;
+    char current;
+    int amount;
+
+    //First Letter
+    for (int i = 0; i < input.length(); i++)
     {
-        char temp;
-        char last = input[length - 1];
-        for (int i = length - 1; i > 0; i--)
+        if (!alt)
         {
-            temp = input[i - 1];
-            input[i - 1] = input[i];
-            input[i] = temp;
-        }
-        input[0] = last;
-        outputs[iterations] = input;
-        iterations++;
-    }
-    cout << endl;
-
-    //Reverse Strings
-    for (int i = 0; i < length; i++)
-    {
-        reverseString(outputs[i], length);
-    }
-
-    //Sort
-    if (type == 0)
-        insertionSort(outputs, input.length());
-    else
-        mergeSort(outputs, 0, input.length() - 1);
-
-    //Rereverse Strings and find correct line
-    int correctPos = 0;
-    for (int i = 0; i < length; i++)
-    {
-        reverseString(outputs[i], length);
-        if (outputs[i] == original)
-        {
-            correctPos = i;
-        }
-
-    }
-
-    output.append(to_string(correctPos));
-    output.append("\n");
-
-
-    //Find second line of output
-    int i = 0;
-    int counter = 1;
-    while(i < length - 1) {
-        if (outputs[i][0] != outputs[i + 1][0]) {
-            output += to_string(counter);
-            output += outputs[i][0];
-            counter = 1;
-            i++;
+            amount = input[i] - 48;
         }
         else
         {
-            counter++;
-            i++;
+            current = input[i];
+            for (int j = 0; j < amount; j++)
+            {
+                first += current;
+            }
+        }
+        alt = !alt;
+    }
+
+    //Last Letter
+    int length = first.length();
+    string last = first;
+    last = insertionSort(last, last.length());
+
+    //Prev                  <--This is where I got stuck
+    int prev[length];
+    bool used[length];
+
+    for (int i = 0; i < length; i++)
+        used[i] = false;
+
+    for (int i = 0; i < length; i++)
+    {
+        int j = 0;
+        if (last[i] != (last[i+1] || last[i-1]))
+        {
+            while (last[i] != first[j])
+            {
+                j++;
+            }
+            prev[i] = j;
+            used[j] = true;
         }
     }
-    output += to_string(counter);
-    output += outputs[i][0];
 
-    return output;
+    for (int i = 0; i < length; i++)
+        cout << first[i] << " ";
+    cout << endl;
+    for (int i = 0; i < length; i++)
+        cout << last[i] << " ";
+    cout << endl;
+    for (int i = 0; i < length; i++)
+        cout << prev[i] << " ";
+    cout << endl;
+    for (int i = 0; i < length; i++)
+        cout << used[i] << " ";
+
+    return original;
 }
 
 int main(int argc, char* argv[])
@@ -198,7 +190,7 @@ int main(int argc, char* argv[])
         if (string(argv[1]) == "insertion") {
             string input;
             while (getline(inputFile, input)) {
-                string output = encode(input, 0);
+                string output = decode(input, 0);
                 outputFile << output << endl;
             }
             outputFile.close();
@@ -207,7 +199,7 @@ int main(int argc, char* argv[])
         } else if (string(argv[1]) == "merge") {
             string input;
             while (getline(inputFile, input)) {
-                string output = encode(input, 1);
+                string output = decode(input, 1);
                 outputFile << output << endl;
             }
             outputFile.close();
@@ -220,7 +212,7 @@ int main(int argc, char* argv[])
     {
         string input;
         getline(cin, input);
-        string output = encode(input, 0);
+        string output = decode(input, 0);
         return 0;
     }
 }

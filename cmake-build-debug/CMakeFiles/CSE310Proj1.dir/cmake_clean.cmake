@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/CSE310Proj1.dir/Decode.cpp.obj"
   "CMakeFiles/CSE310Proj1.dir/Encode.cpp.obj"
   "CSE310Proj1.exe"
   "CSE310Proj1.exe.manifest"

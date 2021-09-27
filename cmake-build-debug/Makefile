@@ -128,6 +128,30 @@ CSE310Proj1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CSE310Proj1.dir\build.make CMakeFiles/CSE310Proj1.dir/build
 .PHONY : CSE310Proj1/fast
 
+Decode.obj: Decode.cpp.obj
+.PHONY : Decode.obj
+
+# target to build an object file
+Decode.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CSE310Proj1.dir\build.make CMakeFiles/CSE310Proj1.dir/Decode.cpp.obj
+.PHONY : Decode.cpp.obj
+
+Decode.i: Decode.cpp.i
+.PHONY : Decode.i
+
+# target to preprocess a source file
+Decode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CSE310Proj1.dir\build.make CMakeFiles/CSE310Proj1.dir/Decode.cpp.i
+.PHONY : Decode.cpp.i
+
+Decode.s: Decode.cpp.s
+.PHONY : Decode.s
+
+# target to generate assembly for a file
+Decode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CSE310Proj1.dir\build.make CMakeFiles/CSE310Proj1.dir/Decode.cpp.s
+.PHONY : Decode.cpp.s
+
 Encode.obj: Encode.cpp.obj
 .PHONY : Encode.obj
 
@@ -161,6 +185,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... CSE310Proj1
+	@echo ... Decode.obj
+	@echo ... Decode.i
+	@echo ... Decode.s
 	@echo ... Encode.obj
 	@echo ... Encode.i
 	@echo ... Encode.s
