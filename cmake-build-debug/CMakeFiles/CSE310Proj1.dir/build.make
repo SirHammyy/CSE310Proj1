@@ -65,27 +65,27 @@ include CMakeFiles/CSE310Proj1.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/CSE310Proj1.dir/flags.make
 
-CMakeFiles/CSE310Proj1.dir/main.cpp.obj: CMakeFiles/CSE310Proj1.dir/flags.make
-CMakeFiles/CSE310Proj1.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Programming\git-repos\School\CSE310\CSE310Proj1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CSE310Proj1.dir/main.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\CSE310Proj1.dir\main.cpp.obj -c F:\Programming\git-repos\School\CSE310\CSE310Proj1\main.cpp
+CMakeFiles/CSE310Proj1.dir/Encode.cpp.obj: CMakeFiles/CSE310Proj1.dir/flags.make
+CMakeFiles/CSE310Proj1.dir/Encode.cpp.obj: ../Encode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Programming\git-repos\School\CSE310\CSE310Proj1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CSE310Proj1.dir/Encode.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\CSE310Proj1.dir\Encode.cpp.obj -c F:\Programming\git-repos\School\CSE310\CSE310Proj1\Encode.cpp
 
-CMakeFiles/CSE310Proj1.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CSE310Proj1.dir/main.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E F:\Programming\git-repos\School\CSE310\CSE310Proj1\main.cpp > CMakeFiles\CSE310Proj1.dir\main.cpp.i
+CMakeFiles/CSE310Proj1.dir/Encode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CSE310Proj1.dir/Encode.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E F:\Programming\git-repos\School\CSE310\CSE310Proj1\Encode.cpp > CMakeFiles\CSE310Proj1.dir\Encode.cpp.i
 
-CMakeFiles/CSE310Proj1.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CSE310Proj1.dir/main.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S F:\Programming\git-repos\School\CSE310\CSE310Proj1\main.cpp -o CMakeFiles\CSE310Proj1.dir\main.cpp.s
+CMakeFiles/CSE310Proj1.dir/Encode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CSE310Proj1.dir/Encode.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S F:\Programming\git-repos\School\CSE310\CSE310Proj1\Encode.cpp -o CMakeFiles\CSE310Proj1.dir\Encode.cpp.s
 
 # Object files for target CSE310Proj1
 CSE310Proj1_OBJECTS = \
-"CMakeFiles/CSE310Proj1.dir/main.cpp.obj"
+"CMakeFiles/CSE310Proj1.dir/Encode.cpp.obj"
 
 # External object files for target CSE310Proj1
 CSE310Proj1_EXTERNAL_OBJECTS =
 
-CSE310Proj1.exe: CMakeFiles/CSE310Proj1.dir/main.cpp.obj
+CSE310Proj1.exe: CMakeFiles/CSE310Proj1.dir/Encode.cpp.obj
 CSE310Proj1.exe: CMakeFiles/CSE310Proj1.dir/build.make
 CSE310Proj1.exe: CMakeFiles/CSE310Proj1.dir/linklibs.rsp
 CSE310Proj1.exe: CMakeFiles/CSE310Proj1.dir/objects1.rsp

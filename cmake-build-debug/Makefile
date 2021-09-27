@@ -128,29 +128,29 @@ CSE310Proj1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CSE310Proj1.dir\build.make CMakeFiles/CSE310Proj1.dir/build
 .PHONY : CSE310Proj1/fast
 
-main.obj: main.cpp.obj
-.PHONY : main.obj
+Encode.obj: Encode.cpp.obj
+.PHONY : Encode.obj
 
 # target to build an object file
-main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CSE310Proj1.dir\build.make CMakeFiles/CSE310Proj1.dir/main.cpp.obj
-.PHONY : main.cpp.obj
+Encode.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CSE310Proj1.dir\build.make CMakeFiles/CSE310Proj1.dir/Encode.cpp.obj
+.PHONY : Encode.cpp.obj
 
-main.i: main.cpp.i
-.PHONY : main.i
+Encode.i: Encode.cpp.i
+.PHONY : Encode.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CSE310Proj1.dir\build.make CMakeFiles/CSE310Proj1.dir/main.cpp.i
-.PHONY : main.cpp.i
+Encode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CSE310Proj1.dir\build.make CMakeFiles/CSE310Proj1.dir/Encode.cpp.i
+.PHONY : Encode.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+Encode.s: Encode.cpp.s
+.PHONY : Encode.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CSE310Proj1.dir\build.make CMakeFiles/CSE310Proj1.dir/main.cpp.s
-.PHONY : main.cpp.s
+Encode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CSE310Proj1.dir\build.make CMakeFiles/CSE310Proj1.dir/Encode.cpp.s
+.PHONY : Encode.cpp.s
 
 # Help Target
 help:
@@ -161,9 +161,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... CSE310Proj1
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
+	@echo ... Encode.obj
+	@echo ... Encode.i
+	@echo ... Encode.s
 .PHONY : help
 
 

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "F:/Programming/git-repos/School/CSE310/CSE310Proj1/main.cpp" "F:/Programming/git-repos/School/CSE310/CSE310Proj1/cmake-build-debug/CMakeFiles/CSE310Proj1.dir/main.cpp.obj"
+  "F:/Programming/git-repos/School/CSE310/CSE310Proj1/Encode.cpp" "F:/Programming/git-repos/School/CSE310/CSE310Proj1/cmake-build-debug/CMakeFiles/CSE310Proj1.dir/Encode.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
